@@ -1,51 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Card = () => {
+const Card = (prop) => {
+    const{image,title,price,id}=prop.data
     return (
         <>
-            <div className="container mt-3">
-                <div className="row row-cols-1 row-cols-md-4 g-4">
-                    <div className="col">
-                        <div className="card">
-                            <div className="card-img">
-                                <img src="/images/product5.jpg" className="card-img-top" alt="..." />
-                            </div>
-                           
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                
-                            </div>
-                        </div>
+
+            <div className="col">
+                <div className="card">
+                    <div className="card-img">
+                        <img src={image} className="card-img-top" alt={title} />
                     </div>
-                    <div className="col">
-                        <div className="card">
-                            <img src="/images/product4.jpg" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col">
-                        <div className="card">
-                            <img src="/images/product1.jpg" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                              
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col">
-                        <div className="card">
-                            <img src="/images/product8.jpg" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Card title</h5>
-                               
-                            </div>
-                        </div>
+
+                    <div className="card-body">
+                        <h5 className="card-title">{title}</h5>
+                        <h5>Rs. {price}</h5>
+                        <Link className='btn btn-success'>View Details</Link>
+
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
