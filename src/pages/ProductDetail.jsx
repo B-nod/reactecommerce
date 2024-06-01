@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductDetail = () => {
     const[product,setProduct]=useState({})
@@ -11,8 +13,31 @@ const ProductDetail = () => {
         .then(res=>setProduct(res.data))
         .catch(err=>console.log(err))
     },[id])
+    //add to cart
+    const addToCart=()=>{
+      const cartItems = JSON.parse(localStorage.getItem('cartData')) || []
+      const productItem = {
+        id:product.id,
+        title:product.title,
+        price:product.price,
+        description:product.description,
+        image:product.image,
+        quantity:1
+      }
+      //check if item is present in the cart or not
+      const existingItem = cartItems.find(item=>item.id===product.id)
+      if(existingItem){
+        toast.error('product is already exit in the cart')
+      }
+      else{
+        cartItems.push(productItem)
+        localStorage.setItem('cartData',JSON.stringify(cartItems))
+        toast.success(`${product.title} is added to cart`)
+      }
+    }
   return (
     <>
+    <ToastContainer theme='colored' position='top-center'/>
     <div className="container">
       <div className="row d-flex justify-content-between my-4 align-items-center">
         <div className="col-md-3">
