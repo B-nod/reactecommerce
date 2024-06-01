@@ -18,7 +18,7 @@ const MyRoute = () => {
             <Route path='/' element={<Layout />}>
                 <Route index element={<HomePage />}/>
                 <Route path='products' element={<Products/>} />
-                <Route path='productdetail/:productId' element={<ProductDetail/>} />
+                <Route path='productdetails/:productId' element={<ProductDetail/>} />
             </Route>
         </Routes>
     </Router>
