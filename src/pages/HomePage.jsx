@@ -6,8 +6,7 @@ const HomePage = () => {
   return (
     <>
     <Carousel/>
-    <Card/>
-    <Card/>
+   
 
     
     </>

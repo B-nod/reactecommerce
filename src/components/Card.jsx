@@ -15,7 +15,7 @@ const Card = (prop) => {
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
                         <h5>Rs. {price}</h5>
-                        <Link className='btn btn-success'>View Details</Link>
+                        <Link to={`/productdetails/${id}`} className='btn btn-success'>View Details</Link>
 
                     </div>
                 </div>
