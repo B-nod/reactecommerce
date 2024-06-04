@@ -9,6 +9,31 @@ const Cart = () => {
         const cartDate=JSON.parse(localStorage.getItem('cartData'))
         setProduct(cartDate)
     })
+
+    //increase quantity
+    const increaseQty=id=>{
+        const updateProduct=products.map(item=>{
+            if(item.id===id){
+                return {...item,quantity:item.quantity+1}
+            }
+            return item
+        })
+
+        setProduct(updateProduct)
+        localStorage.setItem('cartData',JSON.stringify(updateProduct))
+    }
+    //decrease quantity
+    const decreaseQty=id=>{
+        const updateProduct=products.map(item=>{
+            if(item.id===id && item.quantity>1){
+                return {...item,quantity:item.quantity-1}
+            }
+            return item
+        })
+
+        setProduct(updateProduct)
+        localStorage.setItem('cartData',JSON.stringify(updateProduct))
+    }
   return (
     <>
     <ToastContainer theme='colorred' position='top-center'/>
