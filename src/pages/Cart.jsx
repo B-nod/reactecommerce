@@ -38,10 +38,10 @@ const Cart = () => {
                                    Rs {item.price}
                                 </div>
                                 <div className="col-3">
-                                    <button className="btn btn-primary">+</button> &nbsp; 
+                                    <button className="btn btn-primary" onClick={()=>increaseQty(item.id)}>+</button> &nbsp; 
                                     <span>{item.quantity}</span>
                                     &nbsp;
-                                    <button className="btn btn-danger">-</button>
+                                    <button className="btn btn-danger" onClick={()=>decreaseQty(item.id)}>-</button>
                                 </div>
                                 <div className="col-1">
                                     <button className="btn btn-danger"><FaTrash/></button>
