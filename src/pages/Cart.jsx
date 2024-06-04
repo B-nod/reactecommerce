@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaTrash} from 'react-icons/fa';
 
 const Cart = () => {
     const[products,setProduct]=useState([])
@@ -22,12 +23,41 @@ const Cart = () => {
                 <h2 className="text-center">
                     Your cart Items
                 </h2>
-                <div className="col-md-8 shadow"></div>
+                <div className="col-md-8 shadow">
+                    {products.map((item,i)=>(
+                        <div key={i}>
+                            <hr />
+                            <div className="row d-flex align-items-center">
+                                <div className="col-2">
+                                    <img src={item.image} alt={item.title} width={'50'} />
+                                </div>
+                                <div className="col-3">
+                                    <strong>{item.title}</strong>
+                                </div>
+                                <div className="col-2 text-warning">
+                                   Rs {item.price}
+                                </div>
+                                <div className="col-3">
+                                    <button className="btn btn-primary">+</button> &nbsp; 
+                                    <span>{item.quantity}</span>
+                                    &nbsp;
+                                    <button className="btn btn-danger">-</button>
+                                </div>
+                                <div className="col-1">
+                                    <button className="btn btn-danger"><FaTrash/></button>
+                                </div>
+                            </div>
+                            </div>
+                    ))}
+                </div>
                 <div className="col-md-3">
                     <div className="shodow p-2">
                         <h5>Cart Summary</h5>
-                        <p><strong>Units: </strong>5</p>
-                        <p><strong>Total:</strong>$100</p>
+                        <p><strong>Units: </strong>
+                        {products.reduce((ac,item)=>(ac+Number(item.quantity)),0)}
+                        
+                        </p>
+                        <p><strong>Total:</strong>{products.reduce((ac,item)=>(ac+item.price*item.quantity),0)}</p>
                         <hr />
                         <button className="btn btn-warning">Check out</button>
                     </div>
