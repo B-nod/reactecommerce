@@ -11,34 +11,45 @@ const Cart = () => {
     })
 
     //increase quantity
-    const increaseQty=id=>{
-        const updateProduct=products.map(item=>{
-            if(item.id===id){
-                return {...item,quantity:item.quantity+1}
-            }
-            return item
-        })
-
-        setProduct(updateProduct)
-        localStorage.setItem('cartData',JSON.stringify(updateProduct))
-    }
+  const increaseQty=id=>{
+    const updateProduct = product.map(item=>{
+        if(item.id===id){
+            return {...item, quantity:item.quantity+1}
+        }
+        return item
+    })
+    setProduct(updateProduct)
+    localStorage.setItem('cartData',JSON.stringify(updateProduct))
+  }
     //decrease quantity
     const decreaseQty=id=>{
-        const updateProduct=products.map(item=>{
-            if(item.id===id && item.quantity>1){
-                return {...item,quantity:item.quantity-1}
+        const updateProduct = product.map(item=>{
+            if(item.id===id && item.id>1){
+                return {...item, quantity:item.quantity-1}
+
             }
             return item
         })
-
         setProduct(updateProduct)
-        localStorage.setItem('cartData',JSON.stringify(updateProduct))
+        localStorage.setItem('cartData', JSOn.stringify(updateProduct))
+    }
+
+    //remove cart data
+  
+    const removeCartHandler=(id,name)=>{
+        const confirmed = window.confirm('Are you sure want to delete this cart?')
+        if(confirmed){
+            const filterCart = products.filter(item=>item.id!=id)
+            localStorage.setItem('cartData',JSON.stringify(filterCart))
+            setProduct(filterCart)
+            toast.success(`${name} is removed from the cart`)
+        }
     }
   return (
     <>
-    <ToastContainer theme='colorred' position='top-center'/>
+    <ToastContainer theme='colored' position='top-center'/>
     <div className="container">
-        <div className="row d-flex-justify-content-between my-5">
+        <div className="row d-flex justify-content-between my-5">
             {products.lenght===0 ?
             <h2 className="mt-4 text-center text-danger">
                 Your cart is empty
@@ -69,7 +80,7 @@ const Cart = () => {
                                     <button className="btn btn-danger" onClick={()=>decreaseQty(item.id)}>-</button>
                                 </div>
                                 <div className="col-1">
-                                    <button className="btn btn-danger"><FaTrash/></button>
+                                    <button className="btn btn-danger" onClick={()=>removeCartHandler(item.id,item.name)}><FaTrash/></button>
                                 </div>
                             </div>
                             </div>
