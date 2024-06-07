@@ -12,7 +12,7 @@ const Cart = () => {
 
     //increase quantity
   const increaseQty=id=>{
-    const updateProduct = product.map(item=>{
+    const updateProduct = products.map(item=>{
         if(item.id===id){
             return {...item, quantity:item.quantity+1}
         }
@@ -23,7 +23,7 @@ const Cart = () => {
   }
     //decrease quantity
     const decreaseQty=id=>{
-        const updateProduct = product.map(item=>{
+        const updateProduct = products.map(item=>{
             if(item.id===id && item.id>1){
                 return {...item, quantity:item.quantity-1}
 
@@ -31,20 +31,20 @@ const Cart = () => {
             return item
         })
         setProduct(updateProduct)
-        localStorage.setItem('cartData', JSOn.stringify(updateProduct))
+        localStorage.setItem('cartData', JSON.stringify(updateProduct))
     }
 
     //remove cart data
-  
     const removeCartHandler=(id,name)=>{
-        const confirmed = window.confirm('Are you sure want to delete this cart?')
+        const confirmed = window.confirm("Are you sure want to delete?")
         if(confirmed){
             const filterCart = products.filter(item=>item.id!=id)
-            localStorage.setItem('cartData',JSON.stringify(filterCart))
+            localStorage.setItem('cartData', JSON.stringify(filterCart))
             setProduct(filterCart)
             toast.success(`${name} is removed from the cart`)
         }
     }
+  
   return (
     <>
     <ToastContainer theme='colored' position='top-center'/>
