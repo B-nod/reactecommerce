@@ -19,6 +19,30 @@ const Register = () => {
 
                 </div>
                 <div className="mb-2">
+                    <label htmlFor="lastname">Last Name</label>
+                    <Field type="text" name="lastname" id="lastname" className="form-control"/>
+                    <ErrorMessage name='lastname'>
+                        {msg=><div style={{color:'red'}}>{msg}</div>}
+                    </ErrorMessage>
+
+                </div>
+                <div className="mb-2">
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" name="email" id="email" className="form-control"/>
+                    <ErrorMessage name='email'>
+                        {msg=><div style={{color:'red'}}>{msg}</div>}
+                    </ErrorMessage>
+
+                </div>
+                <div className="mb-2">
+                    <label htmlFor="password">Password</label>
+                    <Field type="password" name="password" id="password" className="form-control"/>
+                    <ErrorMessage name='password'>
+                        {msg=><div style={{color:'red'}}>{msg}</div>}
+                    </ErrorMessage>
+
+                </div>
+                <div className="mb-2">
                     <button className="btn btn-success">
                         Register
                     </button>
