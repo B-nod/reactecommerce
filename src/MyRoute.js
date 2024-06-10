@@ -6,6 +6,7 @@ import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import Register from './pages/Register'
+import Show from './context/Show'
 // import First from './First'
 // import Second from './Second'
 
@@ -23,6 +24,7 @@ const MyRoute = () => {
                 <Route path='productdetails/:productId' element={<ProductDetail/>} />
                 <Route path='cart' element={<Cart/>}/>
                 <Route path='register' element={<Register/>} />
+                <Route path='context' element={<Show/>}/>
             </Route>
         </Routes>
     </Router>

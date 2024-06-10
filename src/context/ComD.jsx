@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import { Global } from './GlobalContext'
 const ComD = () => {
+  const data = useContext(Global)
   return (
     <>
-    <h1>The programming langauge we are learning is Javascript</h1>
+    {/* <h1>The programming langauge we are learning is {data}</h1> */}
+    <h1>The name of the student is {data.fullName}</h1>
+    <h1>The course title is {data.subject}</h1>
     
     </>
   )
