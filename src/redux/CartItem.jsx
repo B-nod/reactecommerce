@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import ChangeItem from './ChangeItem'
+import Studnet from './Studnet'
+
 
 const CartItem = () => {
     const data = useSelector(store=>store)
@@ -11,6 +13,7 @@ const CartItem = () => {
         The total number of items in the cart is {data.cartCount}
     </h1>
     <ChangeItem/>
+     <Studnet/>
     </>
   )
 }
