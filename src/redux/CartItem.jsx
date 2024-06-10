@@ -5,7 +5,7 @@ import Studnet from './Studnet'
 
 
 const CartItem = () => {
-    const data = useSelector(store=>store)
+    const data = useSelector(store=>store.cart)
   return (
     <>
     {/* reducer is used to store our state and change that state using function within */}
