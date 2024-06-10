@@ -4,8 +4,12 @@ import './App.css';
 // import Second from './Second';
 // import { Test, Show } from './Test'; // multiple function export
 import MyRoute from './MyRoute';
+import cartReducer from './redux/reducers/cartReducer';
+import { legacy_createStore } from 'redux'; // to help to know compiler that an reducer is a store
+import { Provider } from 'react-redux';  // to provide data from reducer to components
 
 function App() {
+  const store=legacy_createStore(cartReducer)
   return (
     // <div className="App">
     // <h1>React JS</h1>
@@ -15,7 +19,11 @@ function App() {
     // <Show/>
     // </div>
     <>
+     <Provider store={store}>
+
      <MyRoute/>
+     </Provider>
+   
     
     </>
   );

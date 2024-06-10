@@ -7,6 +7,7 @@ import ProductDetail from './pages/ProductDetail'
 import Cart from './pages/Cart'
 import Register from './pages/Register'
 import Show from './context/Show'
+import CartItem from './redux/CartItem'
 // import First from './First'
 // import Second from './Second'
 
@@ -25,6 +26,7 @@ const MyRoute = () => {
                 <Route path='cart' element={<Cart/>}/>
                 <Route path='register' element={<Register/>} />
                 <Route path='context' element={<Show/>}/>
+                <Route path='redux/cart' element={<CartItem/>} />
             </Route>
         </Routes>
     </Router>
