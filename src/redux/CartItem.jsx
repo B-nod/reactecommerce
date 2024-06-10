@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import ChangeItem from './ChangeItem'
 import Studnet from './Studnet'
+import StudentForm from './StudentForm'
 
 
 const CartItem = () => {
@@ -14,6 +15,7 @@ const CartItem = () => {
     </h1>
     <ChangeItem/>
      <Studnet/>
+     <StudentForm/>
     </>
   )
 }
